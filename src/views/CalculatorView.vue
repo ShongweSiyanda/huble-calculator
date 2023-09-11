@@ -75,7 +75,7 @@ const calculation = (input) => {
   return 0
 }
 const disableAlphabets = (input) => {
-  return input.replace(/[^0-9+\-*/.()]/g, '')
+  return input.replace(/[^0-9+\-*/.()%]/g, '')
 }
 const isNumber = (value) => {
   return typeof value === 'number'
