@@ -11,6 +11,7 @@
                   <form name="calc" id="calc-form">
                     <input type="text" v-model="calculator.inputString"
                            @input="calculator.result = calculation(calculator.inputString)"
+                           @keyup="calculator.inputString = disableAlphabets(calculator.inputString)"
                            placeholder="Enter your expression">
                   </form>
                   <div class="math-buttons px-lg-5 mt-3">
@@ -45,7 +46,7 @@
 
 import {reactive} from "vue";
 import CalculatorMathButton from '../components/Calculator/MathButton/index.vue'
-import { evaluate } from 'mathjs';
+import {evaluate} from 'mathjs';
 
 const calculator = reactive({
   result: 0,
@@ -58,19 +59,26 @@ const addMathOperator = (operator) => {
 
 const calculation = (input) => {
 
-  const formatted_string = input.replace(/[^0-9+\-*/.()]/g, '');
-
-  if (formatted_string !== '') {
-    try {
-      const result = evaluate(formatted_string)
-      if (!Number.isNaN(result)) {
-        return result
+  if (input !== '') {
+    //exclude letter e as it is a mathematical constant
+    if (input !== 'e' && input !== 'E') {
+      try {
+        const result = evaluate(input)
+        if (isNumber(result)) {
+          return result
+        }
+      } catch (error) {
+        console.log('Math error:' + error)
       }
-    } catch (error) {
-      console.log('Math error:'+error)
     }
   }
   return 0
+}
+const disableAlphabets = (input) => {
+  return input.replace(/[^0-9+\-*/.()]/g, '')
+}
+const isNumber = (value) => {
+  return typeof value === 'number'
 }
 
 const mathOperators = [
