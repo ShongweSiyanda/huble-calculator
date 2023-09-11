@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container px-5 py-lg-5 py-4">
+    <div class="container px-lg-5 py-lg-5 py-4">
       <div class="row">
         <div class="col-sm-2 hide-mobile">&nbsp;</div>
         <div class="col-sm-8">
