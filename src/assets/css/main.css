@@ -1,0 +1,17 @@
+html,body{
+    overflow-x: hidden;
+}
+.hero-banner{
+    background: url("../images/hero-bg.webp") no-repeat scroll center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    min-height: 100vh;
+}
+.hide-mobile{
+    display: block!important;
+}
+.show-mobile{
+    display: none!important;
+}

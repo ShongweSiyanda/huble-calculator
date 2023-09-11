@@ -1,0 +1,30 @@
+@media only screen and (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .show-mobile {
+        display: block !important;
+    }
+
+    .splide__pagination__page.is-active {
+        background: #cc4d59 !important;
+        opacity: 1;
+    }
+
+    .splide__pagination__page {
+        background: #cc4d59 !important;
+        opacity: 0.1;
+    }
+
+    .input input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .cta-request-demo, .cta-speak-to-team {
+        padding: 15px 30px!important;
+    }
+
+}
